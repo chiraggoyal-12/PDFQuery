@@ -2,19 +2,16 @@ import os
 
 import cassio
 import streamlit as st
-from dotenv import load_dotenv
 from langchain.chains.question_answering import load_qa_chain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores.cassandra import Cassandra
+from langchain_community.vectorstores import Cassandra
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from PyPDF2 import PdfReader
 
-# -------------------- LOAD ENV --------------------
-load_dotenv()
-
-ASTRA_DB_APPLICATION_TOKEN = os.getenv("ASTRA_DB_APPLICATION_TOKEN")
-ASTRA_DB_ID = os.getenv("ASTRA_DB_ID")
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+# -------------------- LOAD SECRETS --------------------
+ASTRA_DB_APPLICATION_TOKEN = st.secrets["ASTRA_DB_APPLICATION_TOKEN"]
+ASTRA_DB_ID = st.secrets["ASTRA_DB_ID"]
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 
 # -------------------- INIT --------------------
 cassio.init(
