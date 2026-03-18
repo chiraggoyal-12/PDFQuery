@@ -43,7 +43,7 @@ def process_pdf(pdf_file):
 
 # -------------------- VECTOR STORE --------------------
 def create_vector_store(chunks):
-    embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+    embeddings = OpenAIEmbeddings()
 
     vstore = Cassandra(
         embedding=embeddings,
