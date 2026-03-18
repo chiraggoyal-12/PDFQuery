@@ -5,7 +5,7 @@ import streamlit as st
 from langchain.chains.question_answering import load_qa_chain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Cassandra
-from langchain_openai import ChatOpenAI
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from PyPDF2 import PdfReader
 
 # -------------------- LOAD SECRETS --------------------
