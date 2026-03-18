@@ -72,7 +72,7 @@ if uploaded_file is not None:
 
             llm = ChatOpenAI(
                 temperature=0,
-                api_key=OPENAI_API_KEY
+                openai_api_key=OPENAI_API_KEY
             )
 
             chain = load_qa_chain(llm, chain_type="stuff")
