@@ -5,7 +5,7 @@ import streamlit as st
 from langchain.chains.question_answering import load_qa_chain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Cassandra
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_openai import ChatOpenAI
 from PyPDF2 import PdfReader
 
 # -------------------- LOAD SECRETS --------------------
@@ -72,7 +72,7 @@ if uploaded_file is not None:
 
             llm = ChatOpenAI(
                 temperature=0,
-                openai_api_key=OPENAI_API_KEY
+                api_key=OPENAI_API_KEY
             )
 
             chain = load_qa_chain(llm, chain_type="stuff")
